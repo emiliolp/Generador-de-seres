@@ -1,0 +1,23 @@
+Shape{ 
+        appearance Appearance { material Material {
+               diffuseColor 0.381693 0.381693 0.381693
+               ambientIntensity 0.256410
+               specularColor 0.039746 0.034181 0.100964
+               emissiveColor 0.000000 0.000000 0.000000
+               shininess 0.036269
+               transparency 0.000000
+        }}
+            geometry Extrusion {
+                crossSection [0 1, .383 .924, .707 .707, .924 .383, 1 0, .924 -.383, .707 -.707,
+                    .383 -.924, 0 -1, -.383 -.924, -.707 -.707, -.924 -.383,
+                    -1 0, -.924 .383, -.707 .707, -.383 .924, 0 1]
+		            scale[0.15 0.15, 0.15 0.15, 0.15 0.15, 0.15 0.15, 0.15 0.15]                spine [0 8 0,0 2.4 0, 0 2.2 0, 0 2 0, 0 1.8 0, 0 1.6 0, 0 1.4 0, -0.5 1.2 0,-0.5 1 0,-0.5 0.5 0,-0.25 0 0, 0.25 0 0]
+            }
+    }
+Transform{
+    translation 0 8 0
+    children [
+    Inline {
+    url "elice.wrl"
+}]
+}

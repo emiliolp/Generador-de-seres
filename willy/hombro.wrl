@@ -1,0 +1,19 @@
+#Introducir dibujo brazo1 a partir circunferencia
+
+Shape{ 
+        appearance Appearance { material Material {
+               diffuseColor 0.042835 0.042835 0.042835
+               ambientIntensity 0.208333
+               specularColor 0.113468 0.109578 0.156265
+               emissiveColor 0.000000 0.000000 0.000000
+               shininess 0.063830
+               transparency 0.000000
+        }}
+            geometry Extrusion {
+                crossSection [0 0.5, 0.1915 0.462, 0.3535 0.3535, 0.462 0.1915, 0.5 0, 0.462 -.1915, .3535 -.3535,
+                    .1915 -.462, 0 -0.5, -0.5 -0.5, -0.5 0, -0.5 0.5, 0 0.5]
+
+                spine [0 0.25 0,
+                    0 -0.25 0]
+            }
+    }

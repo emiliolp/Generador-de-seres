@@ -1,0 +1,191 @@
+#VRML V2.0 utf8#
+
+Viewpoint{
+	 position 0 3 20
+	 #orientation 0 1 0 0.6#
+	 description "Alzado"
+}
+
+Viewpoint{
+	 position 20 3 0
+	 orientation 0 1 0 1.5708
+	 description "Perfil derecho"
+}
+
+Viewpoint{
+	 position 0 3 -20
+	 orientation 0 1 0 3.1416
+	 description "Alzado posterior"
+}
+
+
+
+
+Background {
+    skyColor [
+        0.0 0.0 0.0
+        0.0 0.0 0.0
+        0.0 0.1 0.3
+    ]
+    skyAngle [
+        1.57,
+        1.87,
+    ]
+}
+
+DEF Grupo Group{
+
+	children[	
+
+	# Cuerpo#
+	Shape{ 
+		appearance Appearance { material  Material {	#Spring03#
+                diffuseColor 1.000000 0.854922 0.000000
+                ambientIntensity 0.253968
+                specularColor 0.872449 0.247119 0.254214
+                emissiveColor 0.000000 0.000000 0.000000
+                shininess 1.000000
+                transparency 0.000000
+        }}
+			geometry Extrusion {
+    			crossSection [0 1, .383 .924, .707 .707, .924 .383, 1 0, .924 -.383, .707 -.707,.383 -.924, 0 -1, -.383 -.924, -.707 -.707, -.924 -.383,-1 0, -.924 .383, -.707 .707, -.383 .924, 0 1]
+
+				scale [0.3 0.3, 0.3 0.3, 0.3 0.3, 0.3 0.3, 0.3 0.3,0.5 0.5, 0.5 0.5, 0.5 0.5, 0.5 0.5, 0.5 0.5,1.7 1.2,2.15 1.65,2.4 1.9,2.5 2,2.4 1.9,2.15 1.65,1.7 1.2] #fisico
+    			spine [0 6 0, 
+    				0 5.571428571 0, 
+   					0 5.142857142 0, 
+    				0 4.714285713 0, 
+    				0 4.285714284 0, 
+    				0 4.285714284 0, 
+    				0 3.857142855 0, 
+    				0 3.428571426 0, 
+    				0 2.999999997 0,
+    				0 2.571428568 0,
+    				0 2.571428568 0,
+    				0 2.142857139 0,
+    				0 1.71428571 0,
+    				0 1.285714281 0,
+    				0 0.857142852 0,
+    				0 0.428571423 0,
+    				0 0 0]
+			}
+	},
+
+#Base Cabeza#
+
+Transform {
+	translation 0 6 0
+	children [
+		Inline {
+			url "base.wrl"
+		}]
+},
+
+#OJOS#
+Transform {
+	translation 1 7.75 0 #centra_
+	children [
+		Inline {
+			url "ojo.wrl"
+		}]
+},
+
+Transform {
+	translation -1 7.75 0
+	children [
+		Inline {
+			url "ojo.wrl"	#ojo2_
+		}]
+},
+
+#Antenas#
+Transform {
+	translation 0 6.5 0
+	children [
+		Inline {
+			url "antena.wrl"
+		}]
+},
+Transform {
+	translation 0 6.5 0
+	rotation 0 0 1 1.29
+	children [
+		Inline {
+			url "antena.wrl"	#antena2_
+		}]
+},
+
+
+#HOMBROS#
+
+Transform {
+	rotation 0 0 1 -1.5708
+	translation 1 3.071428568 0 #lleva eje brazo1 al 0,0 2.571428568 (fin cuerpo abajo sumar 0.5 es la distancia entre 0 0 yfinal brazo1#
+	children [
+		Inline {
+			url "hombro.wrl"
+		}]
+},
+
+Transform {
+	rotation 0 0 1 -1.5708
+	translation -1 3.071428568 0 #lleva eje brazo1 al 0,0 2.571428568 (fin cuerpo abajo sumar 0.5 es la distancia entre 0 0 yfinal brazo1#
+	children [
+		Inline {
+			url "hombro.wrl"
+		}]
+},
+
+#BRAZO IZQUIERDO#
+
+Transform {
+	rotation 1 0 0 1.5708 #brazo1_
+			translation -1.75 3.071428568 0 #0 - 0,3 (x positiva del brazo) -1 (desplazamiento x hombro) -0.25 mitad hombro (las medidas se asocian al eje). 2,571428568+0,5 fin cuerpo 1 + parte cuadrada hombro#
+			children [
+				Inline {
+					url "brazo.wrl"
+				}
+			]
+		},
+
+
+
+Transform {
+	rotation 1 0 0 1.5708 #brazo2_
+	translation 1.75 3.071428568 0
+	#translation 1.75 3.071428568 0 #0 - 0,3 (x positiva del brazo) -1 (desplazamiento x hombro) -0.25 mitad hombro (las medidas se asocian al eje).
+	children [
+		Inline {
+			url "brazo2.wrl"
+		}]
+},
+
+
+#piernas#
+Transform {
+	rotation 1 0 0 3.1416	#pierna_
+	translation 2.15 0.7 0
+	children [
+		Inline {
+			url "pierna2.wrl"
+		}]
+},
+
+Transform {
+	rotation 1 0 0 3.1416	#pierna_
+	translation -2.15 0.7 0
+	children [
+		Inline {
+			url "pierna.wrl"
+		}]
+},
+
+#COLA
+Transform {
+	rotation 0 1 0 -1.5708
+	translation 0 1.285714281 -2
+	children [
+		Inline {
+			url "cola.wrl"
+		}]
+},]}
